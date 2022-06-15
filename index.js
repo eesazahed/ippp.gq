@@ -3,6 +3,7 @@ const axios = require("axios");
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.redirect(req.header('x-forwarded-for'));
