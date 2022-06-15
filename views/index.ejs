@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IPPP!</title>
   <link rel="stylesheet" href="css/style.css">  
-
-  <script>
-    const lookup = <%- JSON.stringify(status) %>;
-  </script>
   <script src="js/index.js"></script>
 </head>  
 <body>
   <main>
+    <% if (status != 'success') { %>
+      <div class="error">Invalid IP Address! Status: <%- status %></div>
+    <% } else { %>
+      <ul>
+        <li>IP Address: <%- query %></li>
+        <li>Country: <%- country %></li>
+        <li>State/Region: <%- regionName %></li>
+        <li>City: <%- city %></li>
+        <li>ZIP Code: <%- zip %></li>
+        <li>Time Zone: <%- timezone %></li>
+        <li>Internet Service Provider: <%- isp %></li>
+        <li>Organization: <%- org %></li>
+        <li>ASN: <%- as %></li>
+      </ul>
+    <% } %>
   </main>
 </body>
 </html>

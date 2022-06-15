@@ -11,7 +11,8 @@ app.get("/", (req, res) => {
 
 app.get("/:ipAddress", async (req, res) => {
   const response = await axios.get(`http://ip-api.com/json/${req.params.ipAddress}`);
-  res.render("index", { **response.data });
+  console.log(response.data)
+  res.render("index", response.data);
 });
 
 app.listen(8080, () => {
