@@ -17,9 +17,9 @@ app.get("/:ipAddress", async (req, res) => {
   let address;
   try {
     request = await axios.get(`http://api.positionstack.com/v1/reverse?access_key=${process.env["POSITIONSTACK_API_KEY"]}&query=${response.data.lat},${response.data.lon}`)
-    address = request.data
+    address = request.data.data[0]
   } catch {}
-
+  
   res.render("index", {...response.data, ...address});
 });
 

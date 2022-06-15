@@ -8,7 +8,7 @@
   <meta property="og:title" content="IPv4 Lookup - 192.168.0.1">
   <meta property="og:site_name" content="IPPP!">
   <meta property="og:url" content="https://ippp.gq">
-  <meta property="og:description" content="IPPP is a tool to show you useful information about an IP address.">
+  <meta property="og:description" content="<%- label %>">
   <meta property="og:type" content="website">
   <meta property="og:image" content="favicon/android-chrome-512x512.png">
 
@@ -27,8 +27,9 @@
     <% } else { %>
       <ul>
         <li><strong>IP Address:</strong> <%- query %></li>
+        <li><strong>Address:</strong> <%- name %></li>
         <li><strong>Country:</strong> <%- country %></li>
-        <li><strong>State/Region:</strong> <%- regionName %></li>
+        <li><strong>State/Region:</strong> <%- region %></li>
         <li><strong>City:</strong> <%- city %></li>
         <li><strong>ZIP Code:</strong> <%- zip %></li>
         <li><strong>Time Zone:</strong> <%- timezone %></li>
