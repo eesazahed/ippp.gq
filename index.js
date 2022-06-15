@@ -14,4 +14,6 @@ app.get("/:ipAddress", async (req, res) => {
   res.render("index", { lookup: response.data });
 });
 
-app.listen(8080);
+app.listen(8080, () => {
+  console.log("IPPP Online!\nhttp://localhost:8080\nhttps://ippp.gq")
+});
