@@ -8,20 +8,21 @@
   <script src="js/index.js"></script>
 </head>  
 <body>
+  <h1>IPPP!</h1>
   <main>
     <% if (status != 'success') { %>
-      <div class="error">Invalid IP Address! Status: <%- status %></div>
+      <div class="error">Invalid IP Address! <strong>Status:</strong> <%- status %></div>
     <% } else { %>
       <ul>
-        <li>IP Address: <%- query %></li>
-        <li>Country: <%- country %></li>
-        <li>State/Region: <%- regionName %></li>
-        <li>City: <%- city %></li>
-        <li>ZIP Code: <%- zip %></li>
-        <li>Time Zone: <%- timezone %></li>
-        <li>Internet Service Provider: <%- isp %></li>
-        <li>Organization: <%- org %></li>
-        <li>ASN: <%- as %></li>
+        <li><strong>IP Address:</strong> <%- query %></li>
+        <li><strong>Country:</strong> <%- country %></li>
+        <li><strong>State/Region:</strong> <%- regionName %></li>
+        <li><strong>City:</strong> <%- city %></li>
+        <li><strong>ZIP Code:</strong> <%- zip %></li>
+        <li><strong>Time Zone:</strong> <%- timezone %></li>
+        <li><strong>Internet Service Provider:</strong> <%- isp %></li>
+        <li><strong>Organization:</strong> <%- org %></li>
+        <li><strong>ASN:</strong> <%- as %></li>
       </ul>
     <% } %>
   </main>
