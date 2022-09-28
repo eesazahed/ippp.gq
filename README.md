@@ -27,12 +27,18 @@ git clone https://github.com/TheRedstoneRadiant/ippp.gq
 cd ippp.gq
 ```
 
+Copy .env.example and replace [Positionstack](https://positionstack.com/) API key
+```bash
+cp .env.example .env
+nano .env
+```
+
 Install dependencies
 ```bash
 npm install
 ```
 
-Run server
+Start development server
 ```bash
-npm start
+npm run dev
 ````
