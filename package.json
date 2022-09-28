@@ -1,15 +1,13 @@
 {
-  "name": "vlc-lookup",
+  "name": "ippp.gq",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple IP address lookup tool.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "axios": "^0.25.0",
     "dotenv": "^16.0.1",
