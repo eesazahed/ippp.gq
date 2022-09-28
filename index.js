@@ -1,28 +1,51 @@
+require("dotenv").config();
+
 const express = require("express");
 const axios = require("axios");
-
-require('dotenv').config()
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.redirect(req.header("x-forwarded-for") || req.connection.remoteAddress);
+  res.redirect(
+    req.headers["x-forwarded-for"] || req.socket.remoteAddress || null
+  );
 });
 
 app.get("/:ipAddress", async (req, res) => {
-  const response = await axios.get(`http://ip-api.com/json/${req.params.ipAddress}`);
-
-  let address;
   try {
-    request = await axios.get(`http://api.positionstack.com/v1/reverse?access_key=${process.env["POSITIONSTACK_API_KEY"]}&query=${response.data.lat},${response.data.lon}`)
-    address = request.data.data[0]
-  } catch {}
-  
-  res.render("index", {...response.data, ...address});
+    const response = await axios.get(
+      `https://ipapi.co/${req.params.ipAddress}/json/`
+    );
+
+    const request = await axios.get(
+      `http://api.positionstack.com/v1/reverse?access_key=${process.env["POSITIONSTACK_API_KEY"]}&query=${response.data.latitude},${response.data.longitude}`
+    );
+
+    let address = request.data.data[0];
+
+    res.render("index", {
+      success: true,
+      ip: response.data.ip,
+      name: address.name,
+      country: address.country,
+      region: address.region,
+      city: response.data.city,
+      postal_code: address.postal_code,
+      timezone: response.data.timezone,
+      org: response.data.org,
+      asn: response.data.asn,
+    });
+  } catch {
+    res.render("index", {
+      success: false,
+    });
+  }
 });
 
 app.listen(8080, () => {
-  console.log("IPPP Online!\nhttp://localhost:8080\nhttps://ippp.gq")
+  console.log(
+    "IPPP Online!\n\nView it local: http://localhost:8080\nView it live: https://ippp.gq"
+  );
 });

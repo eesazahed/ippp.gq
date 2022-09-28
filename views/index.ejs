@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPPP!</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPPP!</title>
 
-  <meta property="og:title" content="IPv4 Lookup - <%- query %>">
-  <meta property="og:site_name" content="IPPP!">
-  <meta property="og:url" content="https://ippp.gq">
-  <meta property="og:description" content="<%- label %>">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="favicon/android-chrome-512x512.png">
-  <meta property="og:image:secure_url" content="favicon/android-chrome-512x512.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="placeholder image" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="IPv4 Lookup" />
+    <meta property="og:site_name" content="IPPP!" />
+    <meta property="og:url" content="https://ippp.gq" />
+    <meta
+      property="og:description"
+      content="Get information for an IP address."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="favicon/android-chrome-512x512.png" />
+    <meta
+      property="og:image:secure_url"
+      content="favicon/android-chrome-512x512.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="placeholder image" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/index.js"></script>
-</head>  
-<body>
-  <main>
-    <img src="img/ippp logo.png" alt="IPPP!">
-    <% if (status != 'success') { %>
-      <div class="error">Invalid IP Address! <strong>Status:</strong> <%- status %></div>
-    <% } else { %>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <main>
+      <img src="img/ippp logo.png" alt="IPPP!" />
+      <% if (!success) { %>
+      <div class="error">Invalid IP Address!</div>
+      <% } else { %>
       <ul>
-        <li><strong>IP Address:</strong> <%- query %></li>
+        <li><strong>IP Address:</strong> <%- ip %></li>
         <li><strong>Address:</strong> <%- name %></li>
         <li><strong>Country:</strong> <%- country %></li>
         <li><strong>State/Region:</strong> <%- region %></li>
         <li><strong>City:</strong> <%- city %></li>
-        <li><strong>ZIP Code:</strong> <%- zip %></li>
+        <li><strong>ZIP Code:</strong> <%- postal_code %></li>
         <li><strong>Time Zone:</strong> <%- timezone %></li>
-        <li><strong>Internet Service Provider:</strong> <%- isp %></li>
         <li><strong>Organization:</strong> <%- org %></li>
-        <li><strong>ASN:</strong> <%- as %></li>
+        <li><strong>ASN:</strong> <%- asn %></li>
       </ul>
-    <% } %>
-  </main>
-</body>
+      <% } %>
+    </main>
+  </body>
 </html>
